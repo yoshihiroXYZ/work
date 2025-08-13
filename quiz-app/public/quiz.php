@@ -38,10 +38,14 @@ if (empty($_SESSION['quiz']) || ($_SESSION['quiz']['category_id'] ?? null) !== $
         'index' => 0,
         'score' => 0,
         'last_feedback' => null,
+        'history' => [],
     ];
 }
 
 $state = &$_SESSION['quiz'];
+if (!isset($state['history'])) {
+    $state['history'] = [];
+}
 
 // 回答処理
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['choice_id'])) {
@@ -72,6 +76,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['choice_id'])) {
         $state['last_feedback'] = [
             'question' => $row['qtext'],
             'is_correct' => $correct,
+            'your' => $row['text'],
+            'correct' => $correct_text ?: '',
+            'explanation' => $row['explanation'] ?? ''
+        ];
+
+        $state['history'][] = [
+            'question' => $row['qtext'],
             'your' => $row['text'],
             'correct' => $correct_text ?: '',
             'explanation' => $row['explanation'] ?? ''
@@ -138,8 +149,18 @@ if (!$finished) {
       <div class="card">
         <h2>結果</h2>
         <p>スコア：<strong><?php echo (int)$state['score']; ?></strong> / <?php echo count($state['questions']); ?></p>
-        <a class="button" href="<?php echo e(base_path('index.php')); ?>">トップへ</a>
       </div>
+      <?php foreach ($state['history'] as $h): ?>
+        <div class="card">
+          <h3><?php echo e($h['question']); ?></h3>
+          <div>あなたの回答：<?php echo e($h['your']); ?></div>
+          <div>正しい答え：<strong><?php echo e($h['correct']); ?></strong></div>
+          <?php if ($h['explanation']): ?>
+            <div style="margin-top:6px">解説：<?php echo e($h['explanation']); ?></div>
+          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+      <a class="button" href="<?php echo e(base_path('index.php')); ?>">トップへ</a>
       <?php $_SESSION['quiz'] = null; unset($_SESSION['quiz']); ?>
     <?php else: ?>
       <div class="card">
