@@ -28,7 +28,7 @@ $categories = $stmt->fetchAll();
       <div class="list">
         <?php foreach ($categories as $c): ?>
           <div class="card">
-            <div class="badge">カテゴリー</div>
+            <div class="badge">カテゴリ</div>
             <h3><?php echo e($c['name']); ?></h3>
             <a class="button" href="quiz.php?category_id=<?php echo (int)$c['id']; ?>">開始</a>
           </div>
