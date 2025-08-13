@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>パスワードハッシュ生成</title>
-  <link rel="stylesheet" href="../public/assets/styles.css">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
 <div class="container">
