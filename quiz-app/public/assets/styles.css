@@ -106,3 +106,7 @@ select {
   font-size: 0.9rem;
   margin: 24px 0;
 }
+
+button.button {
+  display: inline-block;
+}
