@@ -3,6 +3,11 @@ require_once __DIR__ . '/../../includes/db.php';
 require_once __DIR__ . '/../../includes/auth.php';
 require_once __DIR__ . '/../../includes/csrf.php';
 
+if (is_logged_in()) {
+    header('Location: ' . base_path('admin/questions.php'));
+    exit;
+}
+
 verify_csrf();
 
 $error = '';

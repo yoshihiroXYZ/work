@@ -18,3 +18,8 @@ Run the included tests with:
 php tests/csrf_test.php
 ```
 
+## Persistent Login
+
+To keep administrators logged in for longer periods, increase
+`session.cookie_lifetime` or implement a token-based "Remember me" feature.
+
