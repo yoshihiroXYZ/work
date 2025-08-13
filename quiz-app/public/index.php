@@ -27,11 +27,11 @@ $categories = $stmt->fetchAll();
       <h2>カテゴリを選んで開始</h2>
       <div class="list">
         <?php foreach ($categories as $c): ?>
-          <div class="card">
+          <a class="card" href="quiz.php?category_id=<?php echo (int)$c['id']; ?>">
             <div class="badge">カテゴリ</div>
             <h3><?php echo e($c['name']); ?></h3>
             <a class="button" href="quiz.php?category_id=<?php echo (int)$c['id']; ?>">開始</a>
-          </div>
+          </a>
         <?php endforeach; ?>
       </div>
       <?php if (empty($categories)): ?>
