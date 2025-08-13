@@ -41,6 +41,9 @@ body {
   padding: 16px;
   margin: 12px 0;
 }
+.category-card { position:relative; transition:box-shadow .2s, transform .2s; }
+.category-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.12); }
+.start-btn { margin-top:8px; display:inline-block; }
 .button {
   display: inline-block;
   padding: 10px 16px;

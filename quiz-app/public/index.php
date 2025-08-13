@@ -27,17 +27,28 @@ $categories = $stmt->fetchAll();
       <h2>カテゴリを選んで開始</h2>
       <div class="list">
         <?php foreach ($categories as $c): ?>
-          <a class="card" href="quiz.php?category_id=<?php echo (int)$c['id']; ?>">
+          <div class="card category-card">
             <div class="badge">カテゴリ</div>
             <h3><?php echo e($c['name']); ?></h3>
-            <a class="button" href="quiz.php?category_id=<?php echo (int)$c['id']; ?>">開始</a>
-          </a>
+            <a class="button start-btn" href="quiz.php?category_id=<?php echo (int)$c['id']; ?>">開始</a>
+          </div>
         <?php endforeach; ?>
       </div>
       <?php if (empty($categories)): ?>
         <p>カテゴリがありません。管理画面から追加してください。</p>
       <?php endif; ?>
     </div>
+
+    <script>
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', e => {
+          const link = card.querySelector('.start-btn');
+          if (link && !e.target.closest('.start-btn')) {
+            link.click();
+          }
+        });
+      });
+    </script>
 
     <footer class="footer">© Quiz App</footer>
   </div>
