@@ -1,6 +1,8 @@
 <?php
 // includes/auth.php
 
+require_once __DIR__ . '/db.php';
+
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -29,3 +31,4 @@ function logout_admin(): void {
     }
     session_destroy();
 }
+
