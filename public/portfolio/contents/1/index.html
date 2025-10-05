@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>タイピングゲーム</title>
+  <meta name="noindex" content="noindex">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="game" class="text-container">
+    <label for="inputText">
+      <div class="question">
+        <span id="entered" class="marker"></span>
+        <span id="caret" class="caret"></span>
+        <span id="remained"></span>
+      </div>
+
+      <input
+        type="text"
+        class="text"
+        id="inputText"
+        readonly
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        inputmode="latin"
+        autofocus
+      />
+    </label>
+  </div>
+
+  <div id="message" class="text-container hidden">
+    <div class="message">
+      クリア！<br />
+      <button id="replayBtn" class="button">replay(Ctrl + Enter)</button>
+    </div>
+  </div>
+
+  <script type="module" src="./script/main.js"></script>
+</body>
+</html>
