@@ -1,4 +1,3 @@
-'use strict'; 
 import {questions} from './questionData.js';
 
 // --- DOM取得 ---
