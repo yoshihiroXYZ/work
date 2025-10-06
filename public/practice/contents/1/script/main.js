@@ -60,13 +60,13 @@ window.addEventListener('blur', () => setTimeout(() => inputText.focus(), 0));
 
 // --- キー入力（正解以外は受け付けない） ---
 document.addEventListener('keydown', (e) => {
-  //  Ctrl+Enter / Cmd+Enter で「もう一度プレイする」実行（クリア画面表示中のみ）
+  //  Ctrl+Enter / Cmd+Enter で「replay」実行（クリア画面表示中のみ）
   if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
       if (message && !message.classList.contains('hidden')) {
       e.preventDefault();
       replayBtn.click();
       }
-      return; 
+      return;
   }
   if (
     e.key === 'F12' ||

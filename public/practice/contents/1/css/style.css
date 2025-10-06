@@ -1,29 +1,70 @@
+    * {
+      box-sizing: border-box;
+    }
+    
     body {
       font-family: "Hiragino Sans","Hiragino Kaku Gothic ProN","Arial","Yu Gothic","Meiryo",sans-serif;
     }
     .text-container {
-      width:100vw; height:100vh; display:flex; flex-direction:column;
-      justify-content:center; align-items:center;
+      width:100vw;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
     }
     .text-container label {
-      width:100%; height:100%; display:flex; flex-direction:column;
-      justify-content:center; align-items:center;
+      width:100%;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
     }
     .question {
-      display:flex; font-size:48px; font-weight:bold; letter-spacing:0.25em; text-align:center; flex-wrap: wrap;;
+      display:flex;
+      font-size:48px;
+      font-weight:bold;
+      letter-spacing:0.25em;
+      text-align:center;
+      flex-wrap: wrap;;
     }
 @media (max-width: 600px) {
-      .question { font-size:24px; letter-spacing:0.2em; }
+      .question { 
+        font-size:24px;
+        letter-spacing:0.2em; 
+      }
     }
 
-    .marker { background:#91dbf1; }
-    .text {
-      width:100%; border:none; margin-top:2rem; font-size:2vw; letter-spacing:0.1em; text-align:center;
+    .marker { 
+      background:#91dbf1; 
     }
-    .text:focus, .text:focus-visible { border:none; outline:none; }
-    .message { display:block; margin-top:2rem; font-size:1.5rem; text-align:center; }
-    .button { margin-top:1rem; font-size:1rem; cursor:pointer; }
-    .hidden { display:none; }
+    .text {
+      width:100%;
+      border:none;
+      margin-top:2rem;
+      font-size:2vw;
+      letter-spacing:0.1em;
+      text-align:center;
+    }
+    .text:focus, .text:focus-visible { 
+      border:none; 
+      outline:none; 
+    }
+    .message { 
+      display:block; 
+      margin-top:2rem; 
+      font-size:1.5rem; 
+      text-align:center; 
+    }
+    .button { 
+      margin-top:1rem; 
+      font-size:1rem; 
+      cursor:pointer; 
+    }
+    .hidden { 
+      display:none; 
+    }
 
     /* ミスタイプ時の軽い点滅 */
     @keyframes blink-bad {
@@ -31,7 +72,8 @@
       50% { background: #ffd6d6; }
       100% { background: transparent; }
     }
-    .remained-error { animation: blink-bad 0.15s; }
+    .remained-error { animation: blink-bad 0.15s; 
+    }
 
     /* キャレット（次に打つ1文字）の下線点滅 */
     @keyframes caret-blink {
@@ -39,11 +81,15 @@
       50%, 100% { opacity: 0.2; }
     }
     .caret {
-      display:inline-block; position:relative; min-width: 0.6em; /* 幅ゼロ対策 */
+      display:inline-block;
+      position:relative;
+      min-width: 0.6em;
       text-decoration: underline;
       text-decoration-thickness: .15em;
       text-underline-offset: .15em;
       animation: caret-blink 1s steps(2, jump-none) infinite;
     }
     /* 文字が無いときはキャレット非表示（最後の文字を打ち終えた状態） */
-    .caret:empty { display:none; }
+    .caret:empty { 
+      display:none; 
+    }
